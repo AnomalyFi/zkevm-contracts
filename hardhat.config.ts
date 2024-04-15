@@ -196,7 +196,9 @@ const config: HardhatUserConfig = {
             },
         },
         localhost: {
-            url: "http://127.0.0.1:8545",
+            url: process.env.LOCALHOST_PROVIDER
+                ? process.env.LOCALHOST_PROVIDER
+                : "http://localhost:8545",
             accounts: {
                 mnemonic: process.env.MNEMONIC || DEFAULT_MNEMONIC,
                 path: "m/44'/60'/0'/0",
